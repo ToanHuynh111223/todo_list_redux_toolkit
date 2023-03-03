@@ -5,9 +5,11 @@ function AddTodo() {
   const [value, setValue] = useState("");
   const dispatch = useDispatch();
   const onClickAddTodo = () => {
-    const action = addTodo(value);
-    dispatch(action);
-    setValue("");
+    if (value) {
+      const action = addTodo(value);
+      dispatch(action);
+      setValue("");
+    }
   };
   return (
     <div style={{ display: "flex" }}>

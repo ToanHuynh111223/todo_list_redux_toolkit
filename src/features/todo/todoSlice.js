@@ -6,12 +6,15 @@ export const todoSlice = createSlice({
     reducers: {
         addTodo: (state, action) => {
             state.push(action.payload)
+        },
+        removeTodo: (state, action) => {
+            state.splice(action.payload, 1)
         }
     }
 });
 
 // this is for dispatch
-export const { addTodo } = todoSlice.actions;
+export const { addTodo, removeTodo } = todoSlice.actions;
 
 // this is for configureStore
 export default todoSlice.reducer;
